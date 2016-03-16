@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <fstream>//file process
 //global variable declaration
+
+using namespace std;	
 
 int sudoku[81] ;                                // 數獨題目陣列
 int tempNum[81] ;                               // 上一次填數位置
@@ -21,11 +25,28 @@ int check(int);
 int check1(int,int,int *);
 int push(int);
 int pop();
+
+int main() {
+	string Sudoku;
+	int j ;//
 	
-int main(int argc, char *argv[]) {
-	   int j ; 
-	   if(argc>1) for(j=0; j<81; j++) sudoku[j]= argv[1][j]-'0' ;
-	   else exit(0) ;
+	//set outfile
+	ofstream outFile("outfile",ios::out);
+	//the file open error message
+	if(outFile){
+		cerr<<"Failed opening"<<endl;
+		exit(1);
+	}
+	cout<<"Read File Success"<<endl;
+	ifstream inFile("infile", ios::in);
+	if(!inFile) {
+	cerr << "Failed opening" << endl;
+	exit(1);
+	}
+	getline(inFile, Sudoku);
+	cout << Sudoku << endl;
+	      
+//	   if(argc>1) for(j=0; j<81; j++) sudoku[j]= argv[1][j]-'0' ;
 	   printf( "------------------\n");
 	   printSudoku(sudoku) ;
 	   init() ;                                     // 參數設定
