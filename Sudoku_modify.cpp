@@ -28,24 +28,27 @@ int pop();
 
 int main() {
 	string Sudoku;
-	int j ;//
+	int j,num ;//
 	
 	//set outfile
-	ofstream outFile("outfile",ios::out);
+//	ofstream outFile("outfile",ios::out);
 	//the file open error message
-	if(outFile){
+/*	if(outFile){
 		cerr<<"Failed opening"<<endl;
 		exit(1);
 	}
 	cout<<"Read File Success"<<endl;
+*/
 	ifstream inFile("infile", ios::in);
 	if(!inFile) {
-	cerr << "Failed opening" << endl;
-	exit(1);
+		cerr << "Failed opening" << endl;
+		exit(1);
 	}
-	getline(inFile, Sudoku);
-	cout << Sudoku << endl;
-	      
+	for(j=0;j<81;j++){
+		inFile>>num;
+		cout<<num<<endl;
+		sudoku[j]=num;			
+	}
 //	   if(argc>1) for(j=0; j<81; j++) sudoku[j]= argv[1][j]-'0' ;
 	   printf( "------------------\n");
 	   printSudoku(sudoku) ;
