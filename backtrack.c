@@ -76,8 +76,9 @@ int Promising(int b[][9], int n)
 	{
     printf("\n得到第 %d組解答:\n", Ans);
     Show(b);
+	cout<<Cnt<<endl;
     for(n=0; n<Cnt; n++)
-		cout<<(Sol[n]>>8+1)<<(((Sol[n]>>4)&0x0F)+1)<<(Sol[n]&0x0F)<<endl;
+		cout<<((Sol[n]>>8)+1)<<(((Sol[n]>>4)&0x0F)+1)<<(Sol[n]&0x0F)<<" ";
 	}
     return 1;
 }
